@@ -85,9 +85,8 @@ const { data } = useContext(context);
        flex={1}
 
        >
-        {/* IF data.title is windows clone */}
 
-        {data.title !== "Windows-Clone" ? (
+        {(data.scount !== 1 ) ? (
           <Box data-aos="fade-left"
           data-aos-duration="500"
           data-aos-delay="100"
@@ -143,7 +142,7 @@ const { data } = useContext(context);
           data-aos-mirror="true"
           data-aos-once="false"
           data-aos-anchor-placement="top-center"
-          src={image}
+          src={data.image}
           alt={data.title}
           objectFit= " contain"
 
