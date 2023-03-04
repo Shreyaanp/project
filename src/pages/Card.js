@@ -2,10 +2,7 @@ import React from 'react';
 import { useContext, useState } from 'react';
 import { Flex, Heading, Text, Stack,  Button,Modal, ModalFooter, Image,Spinner, useBreakpointValue,  AspectRatio, Container, Box } from '@chakra-ui/react';
 import context from '../context';
-import { ModalBody, ModalCloseButton, ModalContent, ModalHeader, ModalOverlay } from "@chakra-ui/modal"
-import { useDisclosure } from "@chakra-ui/react"
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import image from './windows1.png';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
