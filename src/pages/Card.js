@@ -6,7 +6,7 @@ import { ModalBody, ModalCloseButton, ModalContent, ModalHeader, ModalOverlay } 
 import { useDisclosure } from "@chakra-ui/react"
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import image from './windows.png';
+import image from './windows1.png';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
