@@ -11,8 +11,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 export default function Card() {
-  const { isOpen, onOpen, onClose } = useDisclosure()
-  const finalRef = React.useRef(null)
+
 const { data } = useContext(context);
  const textHeight = useBreakpointValue({ base: '20%', md: '30%' });
  useEffect(() => {
@@ -115,6 +114,21 @@ const { data } = useContext(context);
         }
         top='50%'
         left='50%'
+      />
+      )}
+      {isLoading && (
+        <Spinner
+        thickness='4px'
+        speed='0.65s'
+        emptyColor='gray.200'
+        color='blue.500'
+        size='xl'
+        position={
+          'absolute'
+        }
+        top='50%'
+        left='50%'
+
       />
       )}
       <iframe
