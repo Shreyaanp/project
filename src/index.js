@@ -1,18 +1,30 @@
-import { ColorModeScript } from '@chakra-ui/react';
 import React, { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom/client';
-import App from './App';
+import { ContextProvider } from './context';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 import * as serviceWorker from './serviceWorker';
+import Main from './pages/Main';
+import Card from './pages/Card';
+import { ChakraProvider } from '@chakra-ui/react';
 
 const container = document.getElementById('root');
 const root = ReactDOM.createRoot(container);
 
 root.render(
-  <StrictMode>
-    <ColorModeScript />
-    <App />
+  <ChakraProvider>  <StrictMode>
+   < ContextProvider>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Main/>} />
+        <Route path="/Card" element={<Card/>} />
+      </Routes>
+    </BrowserRouter>
+    </ContextProvider>
   </StrictMode>
+  </ChakraProvider>
+,
+
 );
 
 // If you want your app to work offline and load faster, you can change
