@@ -1,7 +1,9 @@
 import React from 'react';
 import { useContext, useState } from 'react';
-import { Flex, Heading, Text, Stack, Button, Image,Spinner, useBreakpointValue,  AspectRatio, Container, Box } from '@chakra-ui/react';
+import { Flex, Heading, Text, Stack,  Button,Modal, ModalFooter, Image,Spinner, useBreakpointValue,  AspectRatio, Container, Box } from '@chakra-ui/react';
 import context from '../context';
+import { ModalBody, ModalCloseButton, ModalContent, ModalHeader, ModalOverlay } from "@chakra-ui/modal"
+import { useDisclosure } from "@chakra-ui/react"
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import image from './windows.png';
@@ -9,7 +11,8 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 export default function Card() {
-
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const finalRef = React.useRef(null)
 const { data } = useContext(context);
  const textHeight = useBreakpointValue({ base: '20%', md: '30%' });
  useEffect(() => {
@@ -29,7 +32,7 @@ const { data } = useContext(context);
 
         {data.map((data) => (
 
-      <Stack minH={'95vh'} direction={{ base: 'column', md: 'row' }}
+      <Stack minH={'99vh'} direction={{ base: 'column', lg: 'row'}}
 
       >
       <Flex p={8} flex={1} align={'center'} justify={'center'}>
@@ -60,7 +63,7 @@ const { data } = useContext(context);
           <Text fontSize={{ base: 'md', lg: 'lg' }} color={'gray.500'}>
             {data.moreinfo}
           </Text>
-          <Stack direction={{ base: 'column', md: 'row' }} spacing={4}>
+          <Stack direction={{ base: 'row' }} spacing={4}>
             <a href={data.link} target={'_blank'}>
             <Button
               rounded={'full'}
@@ -72,11 +75,16 @@ const { data } = useContext(context);
               Open
             </Button>
             </a>
-            <Button rounded={'full'}>Project Detail</Button>
-          </Stack>
+            <Button rounded={'full'}
+
+            >
+              Project Detail
+              </Button>
+      </Stack>
         </Stack>
       </Flex>
-      <Flex
+
+         <Flex
         height={'100vh'}
        flex={1}
 
